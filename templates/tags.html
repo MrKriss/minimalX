@@ -1,12 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - Tags{% endblock %}
+    {% block title %}Tags &ndash; {{ SITENAME }}{% endblock %}
 
-{#
-{% block content %}
-    <h1>Tags for {{ SITENAME }}</h1>
-    {%- for tag, articles in tags|sort %}
-        <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})</li>
-    {% endfor %}
-{% endblock %}
-#}
+    {% block content %}
+
+    <br><br><br>
+
+    <article>
+      <header class="w3-container col-main">
+        <h1>Tags for {{ SITENAME }}</h1>
+      </header>
+
+      <br>
+
+      <div class="col-main w3-container">
+        <section id="content">
+          <ul>
+          {%- for tag, articles in tags|sort %}
+            <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} ({{ articles|count }})</a></li>
+          {% endfor %}
+          </ul>
+        </section>
+
+        {% if TAG_CLOUD %}
+        {% if articles_page.object_list|count > 2 %}
+        {% include 'tagcloud.html' %}
+        {% endif %}
+        {% endif %}
+
+        <br><br><br>
+        
+      </div>
+    </article>
+
+{% endblock content %}
