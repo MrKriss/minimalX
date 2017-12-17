@@ -43,6 +43,15 @@
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/shariff.min.css">
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments-highlight-github.css">
+    
+    <!-- {% if SYNTAX_HIGHLIGHTING %}
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments-highlight-{{ SYNTAX_HIGHLIGHTING }}.css">
+    {% else %}
+    {% endif %} -->
+
+    {% if CUSTOM_CSS %}
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/custom.css">
+    {% endif %}
 
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
